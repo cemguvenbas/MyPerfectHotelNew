@@ -11,4 +11,5 @@ public class CoreGameSignals : MonoBehaviour
     public Func<byte> onGetLevelID = delegate { return 0; };
     public UnityAction onNextLevel = delegate { };
     public UnityAction onRestartLevel = delegate { };
+    public UnityAction onReset = delegate { };
 }
