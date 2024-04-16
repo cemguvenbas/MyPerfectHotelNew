@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using System;
 
-public class CoreGameSignals : MonoBehaviour
+public class CoreGameSignals
 {
     public UnityAction<byte> onLevelInitialize = delegate { };
     public UnityAction onClearActiveLevel = delegate { };

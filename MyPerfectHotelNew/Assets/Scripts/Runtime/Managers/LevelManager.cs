@@ -12,7 +12,7 @@ public class LevelManager : MonoBehaviour
     [Header("Private Variables")]
     private OnLevelLoaderCommand _levelLoaderCommand;
     private OnLevelDestroyerCommand _levelDestroyerCommand;
-    private short _currentLevel;
+    private short _currentLevel = 0;
 
     [Inject]
     private CoreGameSignals _coreGameSignals;
@@ -51,13 +51,13 @@ public class LevelManager : MonoBehaviour
         _currentLevel++;
         _coreGameSignals.onClearActiveLevel?.Invoke();
         _coreGameSignals.onReset?.Invoke();
-        _coreGameSignals.onLevelInitialize?.Invoke(OnGetLevelValue());
+        _coreGameSignals.onLevelInitialize?.Invoke((byte)(_currentLevel % totalLevelCount));
     }
 
     private void OnRestartLevel(){
         _coreGameSignals.onClearActiveLevel?.Invoke();
         _coreGameSignals.onReset?.Invoke();
-        _coreGameSignals.onLevelInitialize?.Invoke(OnGetLevelValue());
+        _coreGameSignals.onLevelInitialize?.Invoke((byte)(_currentLevel % totalLevelCount));
     }
 
     private void OnDisable() {
@@ -73,6 +73,6 @@ public class LevelManager : MonoBehaviour
     }
 
     private void Start() {
-        _coreGameSignals.onLevelInitialize?.Invoke(OnGetLevelValue());
+        _coreGameSignals.onLevelInitialize?.Invoke((byte)(_currentLevel % totalLevelCount));
     }
 }
