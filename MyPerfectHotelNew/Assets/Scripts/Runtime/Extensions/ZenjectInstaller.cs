@@ -8,5 +8,6 @@ public class ZenjectInstaller : MonoInstaller
     public override void InstallBindings()
     {
         Container.Bind<CoreGameSignals>().AsSingle();
+        Container.Bind<CoreUISignals>().AsSingle();
     }
 }
