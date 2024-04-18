@@ -17,6 +17,9 @@ public class LevelManager : MonoBehaviour
     [Inject]
     private CoreGameSignals _coreGameSignals;
 
+    [Inject]
+    private CoreUISignals _coreUISignals;
+
     private void Awake() {
         _currentLevel = GetActiveLevel();
         Init();
@@ -74,5 +77,6 @@ public class LevelManager : MonoBehaviour
 
     private void Start() {
         _coreGameSignals.onLevelInitialize?.Invoke((byte)(_currentLevel % totalLevelCount));
+        _coreUISignals.onOpenPanel?.Invoke(UIPanelTypes.Start, 1);
     }
 }
