@@ -11,5 +11,9 @@ public class CoreGameSignals
     public Func<byte> onGetLevelID = delegate { return 0; };
     public UnityAction onNextLevel = delegate { };
     public UnityAction onRestartLevel = delegate { };
+    public UnityAction onLevelFailed = delegate { };
+    public UnityAction onLevelSuccessful = delegate { };
     public UnityAction onReset = delegate { };
+    public UnityAction onPlay = delegate { };
+
 }
