@@ -20,6 +20,9 @@ public class LevelManager : MonoBehaviour
     [Inject]
     private CoreUISignals _coreUISignals;
 
+    [Inject]
+    private CameraSignals _cameraSignals;
+
     private void Awake() {
         _currentLevel = GetActiveLevel();
         Init();
@@ -78,5 +81,6 @@ public class LevelManager : MonoBehaviour
     private void Start() {
         _coreGameSignals.onLevelInitialize?.Invoke((byte)(_currentLevel % totalLevelCount));
         //_coreUISignals.onOpenPanel?.Invoke(UIPanelTypes.Start, 1);
+        _cameraSignals.onSetCameraTarget?.Invoke();
     }
 }

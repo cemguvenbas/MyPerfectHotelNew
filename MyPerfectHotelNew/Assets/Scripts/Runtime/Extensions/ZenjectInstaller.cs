@@ -9,5 +9,6 @@ public class ZenjectInstaller : MonoInstaller
     {
         Container.Bind<CoreGameSignals>().AsSingle();
         Container.Bind<CoreUISignals>().AsSingle();
+        Container.Bind<CameraSignals>().AsSingle();
     }
 }
