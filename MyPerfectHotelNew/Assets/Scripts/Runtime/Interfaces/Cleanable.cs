@@ -8,7 +8,7 @@ public class Cleanable : MonoBehaviour
     [Header("Elements")]
     [SerializeField] private Image gageFill;
     [SerializeField] private GameObject canvas;
-    //[SerializeField] private Animator animator;
+    [SerializeField] private Animator animator;
 
     [Header("Settings")]
     private bool isClean;
@@ -45,7 +45,7 @@ public class Cleanable : MonoBehaviour
 
         canvas.SetActive(true);
 
-        //MessingAnimation();
+        MessingAnimation();
     }
 
     private void SetAsClean()
@@ -54,7 +54,7 @@ public class Cleanable : MonoBehaviour
 
         canvas.SetActive(false);
 
-        //CleaningAnimation();
+        CleaningAnimation();
     }
 
     public bool IsClean()
@@ -62,13 +62,13 @@ public class Cleanable : MonoBehaviour
         return isClean;
     }
 
-    // private void CleaningAnimation()
-    // {
-    //     animator.Play("Clean");
-    // }
+    private void CleaningAnimation()
+    {
+        animator.Play("Clean");
+    }
 
-    // private void MessingAnimation()
-    // {
-    //     animator.Play("MessUp");
-    // }
+    private void MessingAnimation()
+    {
+        animator.Play("MessUp");
+    }
 }
